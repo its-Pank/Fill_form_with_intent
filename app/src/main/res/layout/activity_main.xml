@@ -156,21 +156,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Male "
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"
+                                    android:onClick="onRadioButtonClicked"/>
 
                                 <RadioButton
                                     android:id="@+id/female"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Female"
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"
+                                    android:onClick="onRadioButtonClicked"/>
 
                                 <RadioButton
                                     android:id="@+id/trns"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Trans Gender "
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"
+                                    android:onClick="onRadioButtonClicked"/>
                         </RadioGroup>
 
                         <TextView
@@ -221,59 +224,10 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="20dp"
-                            android:text="Sumbit"
+                            android:text="Preview"
                             android:textSize="30sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="20dp"
-                            android:text="pleas check careful all details "
-                            android:textSize="25sp" />
-
-                        <TextView
-                            android:id="@+id/full_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ur_phn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ur_alphn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ur_email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ur_dob"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ur_gender"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
                 </LinearLayout>
         </ScrollView>
 </layout>

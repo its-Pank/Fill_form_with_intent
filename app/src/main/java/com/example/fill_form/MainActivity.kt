@@ -1,11 +1,14 @@
 package com.example.fill_form
 
+import android.content.Intent
 import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
+import androidx.core.view.get
 
 import androidx.databinding.DataBindingUtil
 import com.example.fill_form.databinding.ActivityMainBinding
@@ -16,11 +19,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var bind: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
 
-
-        bind = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        bind = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bind.root)
 
         bind.btnId.setOnClickListener {
 
@@ -37,11 +39,17 @@ class MainActivity : AppCompatActivity() {
                             {
                                 if (bind.dob.editText!!.text.toString().isNotEmpty())
                                 {
-                                    bind.fullName.setText("Your name : "+ bind.fnameId.editText!!.text.toString() +" "+ bind.lnameId.editText!!.text.toString())
-                                    bind.urPhn.setText("phone number : +91"+bind.pnNo.editText!!.text.toString())
-                                    bind.urAlphn.setText("Alternative ph.no. : +91"+bind.AlPhn.editText!!.text.toString())
-                                    bind.urEmail.setText("E-mail Address: "+bind.eMail.editText!!.text.toString() +"gmail.com")
-                                    bind.urDob.setText("D.O.B :"+bind.dob.editText!!.text.toString())
+                                    val intent = Intent(this, MainActivity2::class.java)
+
+                                    intent.putExtra("fname",bind.fnameId.editText!!.text.toString())
+                                    intent.putExtra("lname",bind.lnameId.editText!!.text.toString())
+                                    intent.putExtra("ph_no",bind.pnNo.editText!!.text.toString())
+                                    intent.putExtra("al_no",bind.AlPhn.editText!!.text.toString())
+                                    intent.putExtra("e_mail",bind.eMail.editText!!.text.toString())
+                                    intent.putExtra("dob",bind.dob.editText!!.text.toString())
+                                    intent.putExtra("gender",gb)
+
+                                    startActivity(intent)
 
                                 } else {
                                     Toast.makeText(this, "Field cant be empty", Toast.LENGTH_SHORT)
@@ -74,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
     override fun onCreateOptionsMenu(menu: Menu):Boolean {
 
         menuInflater.inflate(R.menu.menu, menu)
@@ -103,10 +110,30 @@ class MainActivity : AppCompatActivity() {
             }
             else -> {super.onOptionsItemSelected(menu) }
         }
-
     }
+   lateinit var gb:String
+    fun onRadioButtonClicked(view: View)
+    {
+        if (view is RadioButton)
+        {
+            val checked = view.isChecked
 
-
-
+            when (view.getId())
+            {
+                R.id.male ->
+                    if (checked) {
+                        gb= "Male"
+                    }
+                R.id.female ->
+                    if (checked) {
+                        gb= "Female"
+                    }
+                R.id.trns ->
+                    if (checked) {
+                        gb= "Transgender"
+                    }
+            }
+        }
+    }
 
 }
